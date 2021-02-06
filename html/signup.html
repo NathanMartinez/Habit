@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../styles/index.css">
+    <title>Habit Signup</title>
+</head>
+<body>
+    <nav>
+        <ul id="tabs">
+          <li><a href="./index.html">Home</a></li>
+          <li> <a href="#">Learn More</a></li>
+          <li> <a href="#">About Habit</a></li>
+        </ul>
+        <div>
+          <ul id="accountButtons">
+            <li><a href="./signup.html">Sign Up</a></li>
+            <li><a href="./login.html">Log In</a></li>
+          </ul>
+        </div>
+      </nav>
+    <form>
+        <h1 id="sign-up-header">Sign Up</h1>
+        <label for="firstName">First Name:</label>
+            <input type="text" name="firstName" id="firstName">
+        <label for="lastName">Last Name:</label>
+            <input type="text" name="lastName" id="lastName">
+        <label for="email">Email:</label>
+            <input type="email" name="email" id="email">
+        <label for="username">Username:</label>
+            <input type="text" name="username" id="username">
+        <label for="password">Password:</label>
+            <input type="password" name="password" id="password">
+        <label for="password-confirmation">Confirm Password:</label>
+            <input type="password" name="passwordConfirmation" id="password-confirmation">
+        <button id="submit-button">Create Account</button>
+    </form>
+    <script src="../scripts/script.js" type="module"></script>
+</body>
+</html>
