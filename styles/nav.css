@@ -1,6 +1,7 @@
 nav {
-  position: absolute;
+  position: static;
   top: 0;
+  
   width: 100%;
   display: flex;
   justify-content: space-between;
