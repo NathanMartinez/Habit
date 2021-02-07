@@ -1,10 +1,31 @@
 export default class Form {
   constructor() {
+    this.labels = document.querySelectorAll('label')
     this.inputs = document.querySelectorAll('input');
     this.submitButton = document.querySelector('button');
     this.valid = false;
     this.type = this.inputs.length > 2 ? 'signup' : 'login'
     this.data = {}
+  }
+  onChangeHandling() {
+    this.inputs.forEach(input => {
+      input.addEventListener('change', (e) => {
+        e.target.labels[0].style.transform = "translateY(0)"
+      })
+    })
+  }
+  addFocusEvents() {
+    this.inputs.forEach(input => {
+      input.addEventListener('focusin', (e) => {
+        e.target.labels[0].style.transform = "translateY(0)"
+      })
+        input.addEventListener('focusout', (e) => {
+          if (e.target.value === '') {
+            e.target.labels[0].style.transform = "translateY(30px)"
+          }
+        })
+      
+    })
   }
   getValues() {
     let data = {}
@@ -30,6 +51,7 @@ export default class Form {
       this.validateForm()
       if (this.data.type && this.valid) {
         array.push(this.data)
+        console.log(array);
       }
   }
 }

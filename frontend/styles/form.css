@@ -1,3 +1,7 @@
+#content-container {
+  justify-content: center;
+  align-items: center;
+}
 form {
   display: flex;
   width: 400px;
@@ -5,7 +9,7 @@ form {
   border: 1px solid black;
   padding: 2rem;
   background: #fff;
-  color: rgb(65, 61, 78);
+  color: rgb(27, 34, 49);
   border-radius: .3rem;
 }
 h1 {
@@ -16,13 +20,17 @@ label {
   display: flex;
   align-items: center;
   justify-content: space-between;
-
+  margin: 0.5rem 0;
+  transform: translateY(30px);
+  transition: all .4s ease-in-out;
 }
 input {
   display: flex;
-
+  border: none;
+  border-bottom: 2px solid rgb(0, 195, 255);
+  outline: none;
 }
-button {
+form button {
   font-size: 1.2rem;
   margin-top: 1rem;
   padding: .5rem;
@@ -30,7 +38,7 @@ button {
   border: none;
   border-radius: .3rem;
 }
-button:hover {
+form button:hover {
   background: rgb(42, 205, 255);
   cursor: pointer;
 }

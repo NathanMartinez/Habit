@@ -5,7 +5,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="../styles/index.css">
-  <title>Habit Profile</title>
+  <title>Habit Login</title>
 </head>
 <body>
   <nav>
@@ -22,17 +22,15 @@
     </div>
   </nav>
   <div id="content-container">
-    <div id="profile-card">
-      <h3>Profile</h3>
-      <ul>
-        <li>Username:<span>NateDzMtz</span></li>
-        <li>Habit Score:<span>203</span></li>
-        <li>Habit Count:<span>20</span></li>
-        <li>Habits Broken Count:<span>3</span></li>
-        <li>Hotstreak Record:<span>25 Days</span></li>
-        <li>Current Hotstreak:<span>20 Days</span></li>
-      </ul>
-    </div>
+    <form>
+      <h1 id="sign-up-header">Login</h1>
+      <label for="username">Username</label>
+       <input type="text" name="username" id="username" required>
+      <label for="password">Password</label>
+       <input type="password" name="password" id="password" required>
+      <button id="submit-button">Login</button>
+    </form>
   </div>
+  <script src="../scripts/script.js" type="module"></script>
 </body>
 </html>
