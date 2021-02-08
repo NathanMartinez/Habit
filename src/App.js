@@ -1,16 +1,16 @@
-import Nav from './components/Nav'
+import Navigation from './components/Navigation'
 import ContentContainer from './components/ContentContainer'
 import LoginForm from './components/LoginForm'
 import SignupForm from './components/SignupForm'
+import GetUsersContainer from './components/GetUsersContainer'
 
 function App() {
   return (
     <div className="App">
-      <Nav/>
-      <ContentContainer>
+      <Navigation/> 
         {/* <LoginForm/> */}
-        <SignupForm/>
-      </ContentContainer>
+        {/* <SignupForm/> */}
+        <GetUsersContainer/>
     </div>
   );
 }
