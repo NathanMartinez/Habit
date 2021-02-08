@@ -1,15 +1,41 @@
 import { Formik, Field, ErrorMessage, Form } from "formik";
 import { Button, Card, Form as BForm } from 'react-bootstrap';
+import {useState} from 'react'
 import * as Yup from 'yup'
+import axios from 'axios'
 
 export default function SignupForm() {
+  let [data, setData] = useState([])
+
+  const options = {
+    url: 'http://10.0.0.162:3321/users',
+    method: 'POST',
+    data: {
+      firstName: 'Fred',
+      lastName: 'Flintstone'
+    }
+  };
+  
+  function createUser(values) {
+    axios.post('http://10.0.0.162:3321/users', {
+    firstname: values.firstname,
+    lastname: values.lastname,
+    email: values.email,
+    username: values.username,
+    password: values.password
+    })
+    .then(function (response) {
+      console.log(response);
+    })
+  }
+
   return (
   <Formik
   
   initialValues={{firstname: "", lastname: "", email: "", username: "", password: "", confirmPassword: ""}}
   
   validationSchema={Yup.object({
-    username: Yup.string().required('Required'),
+    firstname: Yup.string().required('Required'),
     lastname: Yup.string().required('Required'),
     email: Yup.string().email().required('Required'),
     username: Yup.string().required('Required'),
@@ -20,7 +46,7 @@ export default function SignupForm() {
   
   onSubmit={(values, { setSubmitting }) => {
     setTimeout(() => {
-      alert(JSON.stringify(values, null, 2));
+      createUser(values)
       setSubmitting(false);
     }, 400);
   }}

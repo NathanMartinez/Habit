@@ -18,7 +18,6 @@ export default function GetUsersContainer(params) {
     axios(options)
     .then(response => {
       setData(response.data);
-      console.log(data)
     }); 
   }
   
