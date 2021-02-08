@@ -21,11 +21,10 @@ export default function LoginForm(params) {
   }}
   >
      {(formik) => (
-       <Card>
+       <Card className='form-card'>
          <Card.Body>
           <Form>
               <h1>Login</h1>
-
               <BForm.Group>
                 <BForm.Label>Username</BForm.Label>
                 <Field name="username" type="text" as={BForm.Control} isInvalid={formik.errors.username && formik.touched.username}/>

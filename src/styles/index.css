@@ -5,5 +5,8 @@
 }
 .App {
   height: 100vh;
-  /* background: rgb(46, 61, 90); */
+}
+.form-card {
+  max-width: 400px;
+  margin: 3rem auto;
 }

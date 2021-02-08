@@ -1,6 +1,3 @@
-import '../styles/ContentContainer.css'
-import { Container } from 'react-bootstrap';
-
 export default function ContentContainer({children}) {
-  return <Container fluid>{children}</Container>
+  return <div className='content-container'>{children}</div>
 }
