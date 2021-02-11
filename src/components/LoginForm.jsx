@@ -36,7 +36,6 @@ export default function LoginForm(params) {
                 <Field name="password" type="password" as={BForm.Control} isInvalid={formik.errors.password && formik.touched.password}/>
                 <ErrorMessage name="password"/>
               </BForm.Group>
-
               <Button disabled={formik.isSubmitting} onClick={formik.handleSubmit}>Login</Button>
             </Form>
          </Card.Body>

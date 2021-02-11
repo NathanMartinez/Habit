@@ -1,11 +1,11 @@
-require('dotenv').config()
-const express = require('express')
-const app = express()
-const cors = require('cors')
+require('dotenv').config();
+const express = require('express');
+const app = express();
+const cors = require('cors');
 const mysql = require('mysql');
 
-app.use(cors())
-app.use(express.json())
+app.use(cors());
+app.use(express.json());
 
 const port = process.env.PORT || 3000
 
@@ -29,8 +29,8 @@ connection.connect();
 
 app.post('/users', function (req, res) {
   let user = req.body
-  console.log(user.body)
-  connection.query("INSERT INTO `users` (`firstname`, `lastname`, `email`, `username`, `passcode`, `datetime`) VALUES" + `('${user.firstname}', '${user.lastname}', '${user.email}', '${user.username}', '${user.password}', '${(new Date()).toLocaleString("en-US")}');`, function (error, results, fields) {
+  let queryString = "INSERT INTO `users` (`firstname`, `lastname`, `email`, `username`, `passcode`, `createdOn`) VALUES" + `('${user.firstname}', '${user.lastname}', '${user.email}', '${user.username}', '${user.password}', '${user.createdOn}');`
+  connection.query(queryString, function (error, results, fields) {
     if (error) throw error;
     res.send(`User ${user.username} Created Successfully!`);
     })
@@ -42,6 +42,5 @@ connection.query('SELECT * from users', function (error, results, fields) {
   res.send(results);
   })
 })
-
 
 // Close the connection when we are done. We may want to learn mor about this

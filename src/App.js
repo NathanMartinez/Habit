@@ -3,6 +3,8 @@ import ContentContainer from './components/ContentContainer'
 import LoginForm from './components/LoginForm'
 import SignupForm from './components/SignupForm'
 import GetUsersContainer from './components/GetUsersContainer'
+import TryHabit from './components/TryHabit'
+
 import {
   BrowserRouter as Router,
   Switch,
@@ -24,6 +26,9 @@ function App() {
               </Route>
               <Route path='/signup'>
                 <SignupForm/>
+              </Route>
+              <Route path='/tryit'>
+                <TryHabit/>
               </Route>
             </Switch>
           </ContentContainer>

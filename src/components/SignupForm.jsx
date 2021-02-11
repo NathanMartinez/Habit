@@ -1,38 +1,32 @@
 import { Formik, Field, ErrorMessage, Form } from "formik";
 import { Button, Card, Form as BForm } from 'react-bootstrap';
-import {useState} from 'react'
 import * as Yup from 'yup'
 import axios from 'axios'
 
 export default function SignupForm() {
-  let [data, setData] = useState([])
-
-  const options = {
-    url: 'http://10.0.0.162:3321/users',
-    method: 'POST',
-    data: {
-      firstName: 'Fred',
-      lastName: 'Flintstone'
-    }
-  };
-  
   function createUser(values) {
     axios.post('http://10.0.0.162:3321/users', {
     firstname: values.firstname,
     lastname: values.lastname,
     email: values.email,
     username: values.username,
-    password: values.password
+    password: values.password,
+    createdOn: (new Date()).toLocaleString("en-US")
     })
     .then(function (response) {
-      console.log(response);
+      alert(response.data);
     })
   }
 
   return (
   <Formik
   
-  initialValues={{firstname: "", lastname: "", email: "", username: "", password: "", confirmPassword: ""}}
+  initialValues={{firstname: "", 
+                  lastname: "", 
+                  email: "", 
+                  username: "", 
+                  password: "", 
+                  confirmPassword: ""}}
   
   validationSchema={Yup.object({
     firstname: Yup.string().required('Required'),
@@ -44,9 +38,10 @@ export default function SignupForm() {
     .oneOf([Yup.ref('password'), null], 'Passwords must match').required('Required')
   })}
   
-  onSubmit={(values, { setSubmitting }) => {
+  onSubmit={(values, { setSubmitting, resetForm }) => {
     setTimeout(() => {
       createUser(values)
+      resetForm()
       setSubmitting(false);
     }, 400);
   }}

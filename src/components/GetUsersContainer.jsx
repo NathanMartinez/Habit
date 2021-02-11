@@ -44,7 +44,7 @@ export default function GetUsersContainer(params) {
             <td>{user.lastname}</td>
             <td>{user.email}</td>
             <td>{user.username}</td>
-            <td>{user.datetime}</td>
+            <td>{user.createdOn}</td>
           </tr>)) : null}
         </tbody>
       </Table>
